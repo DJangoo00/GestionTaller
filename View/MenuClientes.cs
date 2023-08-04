@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+namespace GestionTaller.View;
+class MenuClientes
+{
+    public static int Menu()
+    {
+        Console.Clear();
+        Console.WriteLine("****************************************************************");
+        Console.WriteLine("Menu de Clientes");
+        Console.WriteLine("****************************************************************");
+        Console.WriteLine("\t1. Agregar Cliente");
+        Console.WriteLine("\t2. Listar Clientes");
+        Console.WriteLine("\t3. Regresar al menu principal");
+        Console.WriteLine("****************************************************************");
+        Console.Write("\tSeleccione una opcion: ");
+        return int.Parse(Console.ReadLine());
+    }
+}
