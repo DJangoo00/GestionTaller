@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 namespace GestionTaller.View;
-class MainMenu
+public class MainMenu
 {
-    public static int Menu()
+    public int Menu()
     {
         Console.Clear();
         Console.WriteLine("****************************************************************");
-        Console.WriteLine("Menu del taller");
+        Console.WriteLine("\t\t\tMenu del taller");
         Console.WriteLine("****************************************************************");
         Console.WriteLine("\t1. Clientes");
         Console.WriteLine("\t2. Vehiculos");

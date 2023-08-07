@@ -11,7 +11,7 @@ class MenuVehiculos
         Console.WriteLine("****************************************************************");
         Console.WriteLine("\t1. Agregar Vehiculo");
         Console.WriteLine("\t2. Listar Vehiculos por cliente");
-        Console.WriteLine("\t4. Regresar al menu principal");
+        Console.WriteLine("\t3. Regresar al menu principal");
         Console.WriteLine("****************************************************************");
         Console.Write("\tSeleccione una opcion: ");
         return int.Parse(Console.ReadLine());

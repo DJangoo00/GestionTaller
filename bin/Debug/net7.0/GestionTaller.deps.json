@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "GestionTaller/1.0.0": {
+        "runtime": {
+          "GestionTaller.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GestionTaller/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

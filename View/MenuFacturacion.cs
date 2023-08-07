@@ -9,12 +9,8 @@ class MenuFacturacion
         Console.WriteLine("****************************************************************");
         Console.WriteLine("Menu de Facturacion");
         Console.WriteLine("****************************************************************");
-        //implementar
-        Console.WriteLine("\t1. Clientes");
-        Console.WriteLine("\t1. Vehiculos");
-        Console.WriteLine("\t1. Empleados");
-        Console.WriteLine("\t1. Orden de servicio");
-        Console.WriteLine("\t1. Facturas");
+        Console.WriteLine("\t1. Crear Factura");
+        Console.WriteLine("\t2. Volver al menu principal");
         Console.WriteLine("****************************************************************");
         Console.Write("\tSeleccione una opcion: ");
         return int.Parse(Console.ReadLine());

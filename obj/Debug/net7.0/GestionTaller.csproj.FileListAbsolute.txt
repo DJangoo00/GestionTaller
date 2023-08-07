@@ -1,0 +1,15 @@
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.csproj.AssemblyReference.cache
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.AssemblyInfoInputs.cache
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.AssemblyInfo.cs
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.csproj.CoreCompileInputs.cache
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\bin\Debug\net7.0\GestionTaller.exe
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\bin\Debug\net7.0\GestionTaller.deps.json
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\bin\Debug\net7.0\GestionTaller.runtimeconfig.json
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\bin\Debug\net7.0\GestionTaller.dll
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\bin\Debug\net7.0\GestionTaller.pdb
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.dll
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\refint\GestionTaller.dll
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.pdb
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\GestionTaller.genruntimeconfig.cache
+D:\Users\dalgr\Downloads\Campus\Ciclo3\CSharp\GestionTaller\obj\Debug\net7.0\ref\GestionTaller.dll

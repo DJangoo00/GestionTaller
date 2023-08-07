@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 namespace GestionTaller.View;
-class MenuClientes
+public class MenuClientes
 {
     public static int Menu()
     {
