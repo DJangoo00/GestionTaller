@@ -17,5 +17,10 @@ namespace GestionTaller.Clases
             this.email = email;
             this.fechaRegistro = fechaRegistro;
         }
+        public void Mostrar()
+        {
+            Console.WriteLine(String.Format("{0,-10}|{1,-20}|{2,-10}|{3,-10}|{4,-10}", cc, nombre, celular, email, fechaRegistro));
+        }
     }
+
 }

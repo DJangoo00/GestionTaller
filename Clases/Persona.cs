@@ -17,5 +17,6 @@ namespace GestionTaller.Clases
             this.nombre = nombre;
             this.celular = celular;
         }
+        
     }
 }
