@@ -5,6 +5,8 @@ using GestionTaller.View;
 using GestionTaller.Clases;
 internal class Program
 {
+    public static List<Cliente> Clientes = new List<Cliente>();
+    public static List<Vehiculo> Vehiculos = new List<Vehiculo>();
     public static void Main(string[] args)
     {
         MainMenu menu = new MainMenu();
@@ -18,10 +20,10 @@ internal class Program
                     MenuDeClientes();
                     break;
                 case 2:
-                    MenuDeEmpleados();
+                    MenuDeVehiculos();
                     break;
                 case 3:
-                    MenuDeVehiculos();
+                    MenuDeEmpleados();
                     break;
                 case 4:
                     MenuDeServicios();
@@ -50,8 +52,25 @@ internal class Program
         switch (opcion)
         {
             case 1:
+                Console.WriteLine("Ingrese el numero de identificacion: ");
+                int cc = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese el nombre: ");
+                string nombre = Console.ReadLine();
+                Console.WriteLine("Ingrese el numero de celular: ");
+                int celular = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese el email: ");
+                string email = Console.ReadLine();
+                Console.WriteLine("Ingrese la fecha de registro: ");
+                string fechaRegistro = Console.ReadLine();
+                Cliente cliente = new Cliente(cc,nombre, celular, email, fechaRegistro);
+                Clientes.Add(cliente);
                 break;
             case 2:
+                Console.WriteLine(String.Format("{0,-10}|{1,-20}|{2,-10}|{3,-10}|{4,-10}","CC", "Nombre", "Celular", "Email", "Fecha Registro"));
+                foreach (var item in Clientes)
+                {
+                    Console.WriteLine(String.Format("{0,-10}|{1,-20}|{2,-10}|{3,-10}|{4,-10}",item.cc, item.nombre, item.celular, item.email, item.fechaRegistro));
+                }
                 break;
             case 3:
                 break;

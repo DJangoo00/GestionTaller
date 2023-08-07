@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/home/arteN01-052/.nuget/packages/": {}
+    "C:\\Users\\dalgr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/arteN01-052/Downloads/DG/Ciclo3/clasesCS/GestionTaller/GestionTaller.csproj",
+      "projectUniqueName": "D:\\Users\\dalgr\\Downloads\\Campus\\Ciclo3\\CSharp\\GestionTaller\\GestionTaller.csproj",
       "projectName": "GestionTaller",
-      "projectPath": "/home/arteN01-052/Downloads/DG/Ciclo3/clasesCS/GestionTaller/GestionTaller.csproj",
-      "packagesPath": "/home/arteN01-052/.nuget/packages/",
-      "outputPath": "/home/arteN01-052/Downloads/DG/Ciclo3/clasesCS/GestionTaller/obj/",
+      "projectPath": "D:\\Users\\dalgr\\Downloads\\Campus\\Ciclo3\\CSharp\\GestionTaller\\GestionTaller.csproj",
+      "packagesPath": "C:\\Users\\dalgr\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\dalgr\\Downloads\\Campus\\Ciclo3\\CSharp\\GestionTaller\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/arteN01-052/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\dalgr\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

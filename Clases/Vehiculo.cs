@@ -7,13 +7,16 @@ namespace GestionTaller.Clases
 {
     public class Vehiculo
     {
+        public int ccCliente { get; set;}
         public string placa { get; set; }
         public string modelo { get; set; }
         public string marca { get; set; }
         public string color { get; set;}
 
-        public Vehiculo(string placa, string modelo, string marca, string color)
+
+        public Vehiculo(int ccCliente, string placa, string modelo, string marca, string color)
         {
+            this.ccCliente = ccCliente;
             this.placa = placa;
             this.modelo = modelo;
             this.marca = marca;

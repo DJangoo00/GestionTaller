@@ -9,7 +9,6 @@ namespace GestionTaller.Clases
     {
         public string email;
         public string fechaRegistro;
-
         public Cliente(int cc, string nombre, int celular, string email, string fechaRegistro) : base(cc, nombre, celular)
         {
             this.cc = cc;
