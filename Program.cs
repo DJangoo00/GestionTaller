@@ -6,7 +6,7 @@ using GestionTaller.Clases;
 internal class Program
 {
     public static Dictionary<int, Cliente> Clientes = new Dictionary<int, Cliente>();
-    public static List<Vehiculo> Vehiculos = new List<Vehiculo>();
+    public static Dictionary<string, Vehiculo> Vehiculos = new Dictionary<string, Vehiculo>();
     public static Dictionary<int, Empleado> Empleados = new Dictionary<int, Empleado>();
     public static void Main(string[] args)
     {
@@ -97,25 +97,38 @@ internal class Program
         switch (opcion)
         {
             case 1:
-                /*Console.WriteLine("Ingrese el numero de identificacion: ");
-                int cc = int.Parse(Console.ReadLine());
+                Vehiculo vehiculo = new Vehiculo();
                 Console.WriteLine("Ingrese el numero de identificacion: ");
+                int ccCliente = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese la placa del vehiculo: ");
                 string placa = Console.ReadLine();
-                Console.WriteLine("Ingrese el numero de identificacion: ");
+                Console.WriteLine("Ingrese el mdoelo del vehiculo: ");
                 string modelo = Console.ReadLine();
-                Console.WriteLine("Ingrese el numero de identificacion: ");
+                Console.WriteLine("Ingrese la marca del vehiculo: ");
                 string marca = Console.ReadLine();
-                Console.WriteLine("Ingrese el numero de identificacion: ");
+                Console.WriteLine("Ingrese el color del vehiculo: ");
                 string color = Console.ReadLine();
-                Vehiculo vehiculo = new Vehiculo(cc, placa, modelo, marca, color);
-                Vehiculos.Add(vehiculo);*/
+                try
+                {
+                    Vehiculos.Add(placa, vehiculo.AgregarVehiculo(ccCliente, placa, modelo, marca, color));
+                }
+                catch
+                {
+                    Console.WriteLine("Error al ingresar vehiculo!");
+                }
                 break;
             case 2:
-                /*Console.WriteLine(String.Format("{0,-10}|{1,-20}|{2,-10}|{3,-10}|{4,-10}", "CC", "Nombre", "Celular", "Especialidad", "Activo"));
-                foreach (var item in Empleados)
+                Console.WriteLine("Ingrese el numero de identificacion del cliente: ");
+                int ccBusqueda = int.Parse(Console.ReadLine());
+                Console.WriteLine(String.Format("{0,-10}|{1,-15}|{2,-15}|{3,-10}|", "Placa", "Modelo", "Marca", "Color"));
+                Console.WriteLine("------------------------------------------------------------------------------------");
+                foreach (var item in Vehiculos.Values)
                 {
-                    item.Mostrar();
-                }*/
+                    if (item.ccCliente != ccBusqueda)
+                    {
+                        item.Mostrar();
+                    }
+                }
                 break;
             case 3:
                 break;
