@@ -8,6 +8,9 @@ internal class Program
     public static Dictionary<int, Cliente> Clientes = new Dictionary<int, Cliente>();
     public static Dictionary<string, Vehiculo> Vehiculos = new Dictionary<string, Vehiculo>();
     public static Dictionary<int, Empleado> Empleados = new Dictionary<int, Empleado>();
+    public static Dictionary<int, OrdenServicio> Servicios = new Dictionary<int, OrdenServicio>();
+    public static Dictionary<int, DiagnosticoExperto> DiagnosticosExpertos = new Dictionary<int, DiagnosticoExperto>();
+
     public static void Main(string[] args)
     {
         MainMenu menu = new MainMenu();
@@ -120,6 +123,9 @@ internal class Program
             case 2:
                 Console.WriteLine("Ingrese el numero de identificacion del cliente: ");
                 int ccBusqueda = int.Parse(Console.ReadLine());
+                Console.WriteLine(String.Format("{0,-10}|{1,-20}|{2,-10}|{3,-10}|{4,-10}", "CC", "Nombre", "Celular", "Email", "Fecha Registro"));
+                Clientes[ccBusqueda].Mostrar();
+                Console.WriteLine("------------------------------------------------------------------------------------");
                 Console.WriteLine(String.Format("{0,-10}|{1,-15}|{2,-15}|{3,-10}|", "Placa", "Modelo", "Marca", "Color"));
                 Console.WriteLine("------------------------------------------------------------------------------------");
                 foreach (var item in Vehiculos.Values)
@@ -187,20 +193,81 @@ internal class Program
         PressCont();
     }
     static void MenuDeServicios()
+    //Clase de orden de servicios en implementacion
     {
         MenuServicios menuServicios = new MenuServicios();
         int opcion = MenuServicios.Menu();
         switch (opcion)
         {
             case 1:
+                OrdenServicio ordenServicio = new OrdenServicio();
+                int idOrden = Servicios.Count + 1;
+                Console.WriteLine("Ingrese el numero de identificacion del cliente: ");
+                int ccCliente = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese el numero de identificacion del empleado a cargo: ");
+                int ccEmpleado = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese la fecha de ingreso: ");
+                string fechaOrden = Console.ReadLine();
+                Console.WriteLine("Ingrese la placa del vehiculo: ");
+                string placa = Console.ReadLine();
+                Console.WriteLine("Ingrese el kilometraje de ingreso: ");
+                int km = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese el diagnostico del cliente: ");
+                string diagnosticoCliente = Console.ReadLine();
+                try
+                {
+                    Servicios.Add(idOrden, ordenServicio.AgregarServicio(idOrden, ccCliente, ccEmpleado, fechaOrden, placa, km, diagnosticoCliente));
+                }
+                catch
+                {
+                    Console.WriteLine("Error al ingresar Orden de servicio!");
+                }
                 break;
             case 2:
+                Console.WriteLine("Ingrese el numero de orden de servicio: ");
+                int idOrdenBusqueda = int.Parse(Console.ReadLine());
+                DiagnosticoExperto diagnosticoExperto = new DiagnosticoExperto();
+                int idDiagnostico = DiagnosticosExpertos.Count + 1;
+                Console.WriteLine("Ingrese el numero de identificacion: ");
+                string diagnostico = Console.ReadLine();
+                Console.WriteLine("Ingrese el numero de identificacion del empleado: ");
+                int ccEmpleadoDiag = int.Parse(Console.ReadLine());
+                try
+                {
+                    var diagnosticoAct = diagnosticoExperto.AgregarDiagnostico(idDiagnostico, diagnostico, ccEmpleadoDiag);
+                    Servicios[idOrdenBusqueda].AgregarDiagnostico(diagnosticoAct.idDiagnosticoExperto);
+
+                    DiagnosticosExpertos.Add(idDiagnostico, diagnosticoAct);
+                }
+                catch
+                {
+                    Console.WriteLine("Error al ingresar Orden de servicio!");
+                }
                 break;
             case 3:
+                Console.WriteLine("ORden de servicio:");
+                Console.WriteLine("Ingrese el numero de orden de servicio: ");
+                int idOrdenBusqueda2 = int.Parse(Console.ReadLine());
+                Servicios[idOrdenBusqueda2].mostrarServicio();
                 break;
             case 4:
+                Console.WriteLine("ORden de servicio:");
+                Console.WriteLine("Ingrese el documento del cliente: ");
+                int idClientBusqueda = int.Parse(Console.ReadLine());
+                foreach (var item in Servicios.Values)
+                {
+                    if(item.ccCliente == idClientBusqueda)
+                    {
+                        item.mostrarServicio();
+                    }
+                }
                 break;
             case 5:
+                //inicio de repuestos
+                break;
+            case 6:
+                break;
+            case 7:
                 break;
             default:
                 Console.WriteLine("Opcion invalida!");
