@@ -7,7 +7,9 @@ class MenuEmpleados
     {
         Console.Clear();
         Console.WriteLine("****************************************************************");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Menu de Empleados");
+        Console.ForegroundColor = ConsoleColor.Gray;
         Console.WriteLine("****************************************************************");
         Console.WriteLine("\t1. Agregar Empleado");
         Console.WriteLine("\t2. Listar Empleados");

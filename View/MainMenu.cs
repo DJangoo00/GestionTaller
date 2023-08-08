@@ -7,7 +7,9 @@ public class MainMenu
     {
         Console.Clear();
         Console.WriteLine("****************************************************************");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\t\t\tMenu del taller");
+        Console.ForegroundColor = ConsoleColor.Gray;
         Console.WriteLine("****************************************************************");
         Console.WriteLine("\t1. Clientes");
         Console.WriteLine("\t2. Vehiculos");

@@ -5,12 +5,13 @@ using GestionTaller.View;
 using GestionTaller.Clases;
 internal class Program
 {
-    public static Dictionary<int, Cliente> Clientes = new Dictionary<int, Cliente>();
+    public static Dictionary<int, Cliente> Clientes = new();
     public static Dictionary<string, Vehiculo> Vehiculos = new Dictionary<string, Vehiculo>();
     public static Dictionary<int, Empleado> Empleados = new Dictionary<int, Empleado>();
     public static Dictionary<int, OrdenServicio> Servicios = new Dictionary<int, OrdenServicio>();
     public static Dictionary<int, DiagnosticoExperto> DiagnosticosExpertos = new Dictionary<int, DiagnosticoExperto>();
     public static Dictionary<int, Repuesto> Repuestos = new Dictionary<int, Repuesto>();
+    public static Dictionary<int, OrdenAprobacion> OrdenesAprobacion = new Dictionary<int, OrdenAprobacion>();
 
     public static void Main(string[] args)
     {
@@ -257,34 +258,58 @@ internal class Program
                 int idClientBusqueda = int.Parse(Console.ReadLine());
                 foreach (var item in Servicios.Values)
                 {
-                    if(item.ccCliente == idClientBusqueda)
+                    if (item.ccCliente == idClientBusqueda)
                     {
                         item.mostrarServicio();
                     }
                 }
                 break;
             case 5:
-                int idRepuesto = Repuestos.Count + 1;
-                Repuesto repuesto = new Repuesto();
-                Console.WriteLine("Ingrese el valor individual del repuesto: ");
-                int valorRepuesto = int.Parse(Console.ReadLine());
-                Console.WriteLine("Ingrese el valor individual del repuesto: ");
-                int CantidadRepuesto = int.Parse(Console.ReadLine());
-                int TotalRepuesto = CantidadRepuesto*valorRepuesto;
+                //DAta orden aprobacion 
+                int idAprobacion = Repuestos.Count + 1;
+                OrdenAprobacion ordenAprobacion = new OrdenAprobacion();
+                Console.WriteLine("Ingrese el id de la orden de servicio correspondiente: ");
+                int idOrdenServicio = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese la identificacion del empleado: ");
+                int ccEmpleadoOrden = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese la fecha de la orden de aprobacion: ");
+                string fechaDeOrden = Console.ReadLine();
+                //Data Repuesto
                 try
                 {
-                    Repuestos.Add(idRepuesto, repuesto.AgregarRepuesto(valorRepuesto, CantidadRepuesto, TotalRepuesto));
-                    //Agregar al id a Orden de aprobacion
+                    string Opcion;
+                    OrdenesAprobacion.Add(idAprobacion, ordenAprobacion.AgregarOrden(idOrdenServicio, ccEmpleadoOrden, fechaDeOrden));
+                    do
+                    {
+                        int idRepuesto = Repuestos.Count + 1;
+                        Repuesto repuesto = new Repuesto();
+                        Console.WriteLine("Ingrese el nombre del repuesto: ");
+                        string nombreRepuesto = Console.ReadLine();
+                        Console.WriteLine("Ingrese el valor individual del repuesto: ");
+                        int valorRepuesto = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese la cantidad del repuesto: ");
+                        int CantidadRepuesto = int.Parse(Console.ReadLine());
+                        int TotalRepuesto = CantidadRepuesto * valorRepuesto;
+
+                        Repuestos.Add(idRepuesto, repuesto.AgregarRepuesto(nombreRepuesto, valorRepuesto, CantidadRepuesto, TotalRepuesto));
+                        OrdenesAprobacion[idAprobacion].AgregarIdRepuesto(idRepuesto);
+                        Console.WriteLine("------------------------------------------------------------------");
+                        Console.WriteLine("Desea agregar otro repuesto? (y/n): ");
+                        Opcion = Console.ReadLine();
+                    } while (Opcion == "y");
                 }
                 catch
                 {
                     Console.WriteLine("Error al ingresar repuesto");
                 }
-
                 break;
             case 6:
+            //por implementar el imprimir orden de servicio
                 break;
             case 7:
+            
+                break;
+            case 8:
                 break;
             default:
                 Console.WriteLine("Opcion invalida!");
@@ -310,4 +335,3 @@ internal class Program
     }
 
 }
-

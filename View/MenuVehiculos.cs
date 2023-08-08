@@ -7,7 +7,9 @@ class MenuVehiculos
     {
         Console.Clear();
         Console.WriteLine("****************************************************************");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Menu de Vehiculos");
+        Console.ForegroundColor = ConsoleColor.Gray;
         Console.WriteLine("****************************************************************");
         Console.WriteLine("\t1. Agregar Vehiculo");
         Console.WriteLine("\t2. Listar Vehiculos por cliente");

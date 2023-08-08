@@ -7,7 +7,9 @@ public class MenuClientes
     {
         Console.Clear();
         Console.WriteLine("****************************************************************");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Menu de Clientes");
+        Console.ForegroundColor = ConsoleColor.Gray;
         Console.WriteLine("****************************************************************");
         Console.WriteLine("\t1. Agregar Cliente");
         Console.WriteLine("\t2. Listar Clientes");

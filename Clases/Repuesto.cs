@@ -7,23 +7,25 @@ namespace GestionTaller.Clases
 {
     public class Repuesto
     {
+        public string nombreRepuesto { get; set; }
         public int valor { get; set; }
         public int cantidad { get; set; }
         public int total { get; set; }
         public bool aprobado { get; set; }
 
         public Repuesto(){}
-        public Repuesto (int valor, int cantidad, int total, bool aprobado)
+        public Repuesto (string nombreRepuesto, int valor, int cantidad, int total, bool aprobado)
         {
+            this.nombreRepuesto = nombreRepuesto;
             this.valor = valor;
             this.cantidad = cantidad;
             this.total = total;
             this.aprobado = aprobado;
         }
         
-        public Repuesto AgregarRepuesto(int valor, int cantidad, int total)
+        public Repuesto AgregarRepuesto(string nombreRepuesto, int valor, int cantidad, int total)
         {
-            Repuesto repuesto = new Repuesto(valor, cantidad, total, true);
+            Repuesto repuesto = new Repuesto(nombreRepuesto, valor, cantidad, total, true);
             return repuesto;
         }
         public void CambiarEstado()
