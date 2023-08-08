@@ -10,6 +10,7 @@ internal class Program
     public static Dictionary<int, Empleado> Empleados = new Dictionary<int, Empleado>();
     public static Dictionary<int, OrdenServicio> Servicios = new Dictionary<int, OrdenServicio>();
     public static Dictionary<int, DiagnosticoExperto> DiagnosticosExpertos = new Dictionary<int, DiagnosticoExperto>();
+    public static Dictionary<int, Repuesto> Repuestos = new Dictionary<int, Repuesto>();
 
     public static void Main(string[] args)
     {
@@ -245,7 +246,7 @@ internal class Program
                 }
                 break;
             case 3:
-                Console.WriteLine("ORden de servicio:");
+                Console.WriteLine("Orden de servicio:");
                 Console.WriteLine("Ingrese el numero de orden de servicio: ");
                 int idOrdenBusqueda2 = int.Parse(Console.ReadLine());
                 Servicios[idOrdenBusqueda2].mostrarServicio();
@@ -263,7 +264,23 @@ internal class Program
                 }
                 break;
             case 5:
-                //inicio de repuestos
+                int idRepuesto = Repuestos.Count + 1;
+                Repuesto repuesto = new Repuesto();
+                Console.WriteLine("Ingrese el valor individual del repuesto: ");
+                int valorRepuesto = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese el valor individual del repuesto: ");
+                int CantidadRepuesto = int.Parse(Console.ReadLine());
+                int TotalRepuesto = CantidadRepuesto*valorRepuesto;
+                try
+                {
+                    Repuestos.Add(idRepuesto, repuesto.AgregarRepuesto(valorRepuesto, CantidadRepuesto, TotalRepuesto));
+                    //Agregar al id a Orden de aprobacion
+                }
+                catch
+                {
+                    Console.WriteLine("Error al ingresar repuesto");
+                }
+
                 break;
             case 6:
                 break;

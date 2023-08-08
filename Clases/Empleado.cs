@@ -42,7 +42,6 @@ namespace GestionTaller.Clases
                 Console.WriteLine("Opcion Invalida");
                     break;
             }
-            
         }
     }
 
