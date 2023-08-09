@@ -49,6 +49,16 @@ namespace GestionTaller.Clases
                     break;
             }
         }
+        public void MostrarAprobacion()
+        {
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine(String.Format("{0,-30}{1,30}", "Numero de Orden:",idOrdenServicio));
+            Console.WriteLine(String.Format("{0,-30}{1,30}", "Fecha de Orden:",fecha));
+            Console.WriteLine(String.Format("{0,-30}{1,30}", "Identificacion del Empleado:",ccEmpleado));
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("--------------------Detalle de Aprobacion-------------------");
+            Console.WriteLine("------------------------------------------------------------");
+        }
     }
     
 }

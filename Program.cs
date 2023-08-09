@@ -304,7 +304,16 @@ internal class Program
                 }
                 break;
             case 6:
-            //por implementar el imprimir orden de servicio
+            //por implementar el imprimir orden de aprobacion
+                Console.WriteLine("Ingrese el numero de Orden de servicio: ");
+                int idOrdenServicioBusqueda = int.Parse(Console.ReadLine());
+                foreach (var item in OrdenesAprobacion.Keys)
+                {
+                    if (item == idOrdenServicioBusqueda)
+                    {
+                        OrdenesAprobacion[idOrdenServicioBusqueda].MostrarAprobacion();
+                    }
+                }
                 break;
             case 7:
             
