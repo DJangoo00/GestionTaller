@@ -25,14 +25,14 @@ namespace GestionTaller.Clases
         
         public Repuesto AgregarRepuesto(string nombreRepuesto, int valor, int cantidad, int total)
         {
-            Repuesto repuesto = new Repuesto(nombreRepuesto, valor, cantidad, total, true);
+            Repuesto repuesto = new Repuesto(nombreRepuesto, valor, cantidad, total, false);
             return repuesto;
         }
         public void CambiarEstado()
         {
             Console.WriteLine("Ingrese la opcion segun corrresponda: ");
-            Console.WriteLine("1. Activo ");
-            Console.WriteLine("2. Inactivo ");
+            Console.WriteLine("1. Aprobada ");
+            Console.WriteLine("2. Rechazada ");
             int opcion = int.Parse(Console.ReadLine());
             switch (opcion)
             {
@@ -47,9 +47,9 @@ namespace GestionTaller.Clases
                     break;
             }
         }
-        public void MostrarAprobacion()
+        public void MostrarRepuesto()
         {
-            Console.WriteLine(String.Format("{0,-10}|{1,-30}|{2,-15}|{3,-10}|{4,-20}|{5,-10}", "Item",nombreRepuesto,valor, cantidad,total,aprobado));
+            Console.WriteLine(String.Format("{0,-10}|{1,-30}|{2,-15}|{3,-10}|{4,-17}|{5,8}", "Item",nombreRepuesto,valor, cantidad,total,aprobado));
             Console.WriteLine("-----------------------------------------------------------------------------------------------");
         }
     }

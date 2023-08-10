@@ -16,7 +16,7 @@ internal class Program
     public static void Main(string[] args)
     {
         MainMenu menu = new MainMenu();
-        int opcion;
+        int? opcion;
         do
         {
             opcion = menu.Menu();
@@ -315,15 +315,15 @@ internal class Program
                 break;
             case 6:
                 Console.WriteLine("Ingrese el numero de Orden de Aprobacion: ");
-                int idOrdenServicioBusqueda = int.Parse(Console.ReadLine());
-                if (OrdenesAprobacion.ContainsKey(idOrdenServicioBusqueda))
+                int idOrdenAprobacionBusqueda = int.Parse(Console.ReadLine());
+                if (OrdenesAprobacion.ContainsKey(idOrdenAprobacionBusqueda))
                 {
-                    OrdenesAprobacion[idOrdenServicioBusqueda].MostrarAprobacion();
+                    OrdenesAprobacion[idOrdenAprobacionBusqueda].MostrarDetalle();
                     try
                     {
-                        foreach (var item in OrdenesAprobacion[idOrdenServicioBusqueda].listRepuestos)
+                        foreach (var item in OrdenesAprobacion[idOrdenAprobacionBusqueda].listRepuestos)
                         {
-                            Repuestos[item].MostrarAprobacion();
+                            Repuestos[item].MostrarRepuesto();
                         }
                     }
                     catch
@@ -337,7 +337,29 @@ internal class Program
                 }
                 break;
             case 7:
-                //por implementar el aprobar repuestos y orden de aprobacion
+                Console.WriteLine("Ingrese el numero de Orden de Aprobacion: ");
+                int idOrdenAprobacion = int.Parse(Console.ReadLine());
+                if (OrdenesAprobacion.ContainsKey(idOrdenAprobacion))
+                {
+                    OrdenesAprobacion[idOrdenAprobacion].MostrarAprobacion();
+                    try
+                    {
+                        foreach (var item in OrdenesAprobacion[idOrdenAprobacion].listRepuestos)
+                        {
+                            Repuestos[item].MostrarRepuesto();
+                            Repuestos[item].CambiarEstado();
+                        }
+                        OrdenesAprobacion[idOrdenAprobacion].CambiarEstado();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("La orden de aprobacion no contiene repuestos!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No se ha encontrado la orden");
+                }
                 break;
             case 8:
                 break;

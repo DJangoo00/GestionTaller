@@ -19,6 +19,6 @@ public class MainMenu
         Console.WriteLine("\t6. Salir");
         Console.WriteLine("****************************************************************");
         Console.Write("\tSeleccione una opcion: ");
-        return int.Parse(Console.ReadLine());
+        return int.Parse(Console.ReadLine()?? "0");
     }
 }

@@ -33,9 +33,10 @@ namespace GestionTaller.Clases
         }
         public void CambiarEstado()
         {
+            Console.WriteLine("Aprobacion de la orden: ");
             Console.WriteLine("Ingrese la opcion segun corrresponda: ");
-            Console.WriteLine("1. Activo ");
-            Console.WriteLine("2. Inactivo ");
+            Console.WriteLine("\t1. Aprobada ");
+            Console.WriteLine("\t2. Rechazada ");
             int opcion = int.Parse(Console.ReadLine());
             switch (opcion)
             {
@@ -56,6 +57,15 @@ namespace GestionTaller.Clases
             Console.WriteLine(String.Format("{0,-50}{1,45}", "Numero de Orden:",idOrdenServicio));
             Console.WriteLine(String.Format("{0,-50}{1,45}", "Fecha de Orden:",fecha));
             Console.WriteLine(String.Format("{0,-50}{1,45}", "Identificacion del Empleado:",ccEmpleado));
+            Console.WriteLine("-----------------------------------------------------------------------------------------------");
+        }
+        public void MostrarDetalle()
+        {
+            Console.WriteLine("-----------------------------------------------------------------------------------------------");
+            Console.WriteLine(String.Format("{0,-50}{1,45}", "Numero de Orden:",idOrdenServicio));
+            Console.WriteLine(String.Format("{0,-50}{1,45}", "Fecha de Orden:",fecha));
+            Console.WriteLine(String.Format("{0,-50}{1,45}", "Identificacion del Empleado:",ccEmpleado));
+            Console.WriteLine(String.Format("{0,-50}{1,45}", "Aprobada:",aprobada));
             Console.WriteLine("-----------------------------------------------------------------------------------------------");
             Console.WriteLine("-------------------------------------Detalle de Aprobacion-------------------------------------");
             Console.WriteLine("-----------------------------------------------------------------------------------------------");
