@@ -12,7 +12,6 @@ internal class Program
     public static Dictionary<int, DiagnosticoExperto> DiagnosticosExpertos = new Dictionary<int, DiagnosticoExperto>();
     public static Dictionary<int, Repuesto> Repuestos = new Dictionary<int, Repuesto>();
     public static Dictionary<int, OrdenAprobacion> OrdenesAprobacion = new Dictionary<int, OrdenAprobacion>();
-
     public static void Main(string[] args)
     {
         MainMenu menu = new MainMenu();
@@ -94,7 +93,6 @@ internal class Program
         }
         PressCont();
     }
-
     public static void MenuDeVehiculos()
     {
         MenuVehiculos menuVehiculos = new MenuVehiculos();
@@ -171,7 +169,6 @@ internal class Program
                 {
                     Console.WriteLine("Error al crear empleado!");
                 }
-
                 break;
             case 2:
                 Console.WriteLine(String.Format("{0,-10}|{1,-20}|{2,-10}|{3,-20}|{4,-10}", "CC", "Nombre", "Celular", "Especialidad", "Activo"));
@@ -239,7 +236,6 @@ internal class Program
                 {
                     var diagnosticoAct = diagnosticoExperto.AgregarDiagnostico(idDiagnostico, diagnostico, ccEmpleadoDiag);
                     Servicios[idOrdenBusqueda].AgregarDiagnostico(diagnosticoAct.idDiagnosticoExperto);
-
                     DiagnosticosExpertos.Add(idDiagnostico, diagnosticoAct);
                 }
                 catch
@@ -299,10 +295,9 @@ internal class Program
                     try
                     {
                         Repuestos.Add(idRepuesto, repuesto.AgregarRepuesto(nombreRepuesto, valorRepuesto, CantidadRepuesto, TotalRepuesto));
-                        Console.WriteLine("Repuesto Listado con exito");//lineaprueba
-                        Console.WriteLine("{0},{1}","prueba id aprobacion",newIdAprobacion);//lineaprueba
-                        OrdenesAprobacion[newIdAprobacion].AgregarIdRepuesto(idRepuesto);//error al ingresar
-                        Console.WriteLine("Repuesto agregado a orden de aprobacion");//lineaprueba
+                        Console.WriteLine("Repuesto Listado con exito");
+                        OrdenesAprobacion[newIdAprobacion].AgregarIdRepuesto(idRepuesto);
+                        Console.WriteLine("Repuesto agregado a orden de aprobacion");
                     }
                     catch
                     {
