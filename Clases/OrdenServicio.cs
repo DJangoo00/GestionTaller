@@ -26,7 +26,7 @@ namespace GestionTaller.Clases
             this.placa = placa;
             this.km = km;
             this.diagnosticoCliente = diagnosticoCliente;
-            this.diagnosticosExpertos = diagnosticosExpertos;
+            this.diagnosticosExpertos = new List<int>();
         }
         public OrdenServicio AgregarServicio (int idOrden, int ccCliente, int ccEmpleado, string fechaOrden, string placa, int km, string diagnosticoCliente)
         {

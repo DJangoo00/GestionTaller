@@ -132,7 +132,7 @@ internal class Program
                 Console.WriteLine("------------------------------------------------------------------------------------");
                 foreach (var item in Vehiculos.Values)
                 {
-                    if (item.ccCliente != ccBusqueda)
+                    if (item.ccCliente == ccBusqueda)
                     {
                         item.Mostrar();
                     }
@@ -226,6 +226,7 @@ internal class Program
                 }
                 break;
             case 2:
+                //corregir error no agregar diagnostico experto
                 Console.WriteLine("Ingrese el numero de orden de servicio: ");
                 int idOrdenBusqueda = int.Parse(Console.ReadLine());
                 DiagnosticoExperto diagnosticoExperto = new DiagnosticoExperto();
@@ -266,7 +267,7 @@ internal class Program
                 break;
             case 5:
                 //DAta orden aprobacion 
-                int idAprobacion = Repuestos.Count + 1;
+                int newIdAprobacion = Repuestos.Count + 1;
                 OrdenAprobacion ordenAprobacion = new OrdenAprobacion();
                 Console.WriteLine("Ingrese el id de la orden de servicio correspondiente: ");
                 int idOrdenServicio = int.Parse(Console.ReadLine());
@@ -274,49 +275,69 @@ internal class Program
                 int ccEmpleadoOrden = int.Parse(Console.ReadLine());
                 Console.WriteLine("Ingrese la fecha de la orden de aprobacion: ");
                 string fechaDeOrden = Console.ReadLine();
-                //Data Repuesto
                 try
                 {
-                    string Opcion;
-                    OrdenesAprobacion.Add(idAprobacion, ordenAprobacion.AgregarOrden(idOrdenServicio, ccEmpleadoOrden, fechaDeOrden));
-                    do
-                    {
-                        int idRepuesto = Repuestos.Count + 1;
-                        Repuesto repuesto = new Repuesto();
-                        Console.WriteLine("Ingrese el nombre del repuesto: ");
-                        string nombreRepuesto = Console.ReadLine();
-                        Console.WriteLine("Ingrese el valor individual del repuesto: ");
-                        int valorRepuesto = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Ingrese la cantidad del repuesto: ");
-                        int CantidadRepuesto = int.Parse(Console.ReadLine());
-                        int TotalRepuesto = CantidadRepuesto * valorRepuesto;
-
-                        Repuestos.Add(idRepuesto, repuesto.AgregarRepuesto(nombreRepuesto, valorRepuesto, CantidadRepuesto, TotalRepuesto));
-                        OrdenesAprobacion[idAprobacion].AgregarIdRepuesto(idRepuesto);
-                        Console.WriteLine("------------------------------------------------------------------");
-                        Console.WriteLine("Desea agregar otro repuesto? (y/n): ");
-                        Opcion = Console.ReadLine();
-                    } while (Opcion == "y");
+                    OrdenesAprobacion.Add(newIdAprobacion, ordenAprobacion.AgregarOrden(idOrdenServicio, ccEmpleadoOrden, fechaDeOrden));
                 }
                 catch
                 {
-                    Console.WriteLine("Error al ingresar repuesto");
+                    Console.WriteLine("Error al crear orden de aprobacion!");
                 }
+                //Data Repuesto
+                string Opcion;
+                do
+                {
+                    int idRepuesto = Repuestos.Count + 1;
+                    Repuesto repuesto = new Repuesto();
+                    Console.WriteLine("Ingrese el nombre del repuesto: ");
+                    string nombreRepuesto = Console.ReadLine();
+                    Console.WriteLine("Ingrese el valor individual del repuesto: ");
+                    int valorRepuesto = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese la cantidad del repuesto: ");
+                    int CantidadRepuesto = int.Parse(Console.ReadLine());
+                    int TotalRepuesto = CantidadRepuesto * valorRepuesto;
+                    try
+                    {
+                        Repuestos.Add(idRepuesto, repuesto.AgregarRepuesto(nombreRepuesto, valorRepuesto, CantidadRepuesto, TotalRepuesto));
+                        Console.WriteLine("Repuesto Listado con exito");//lineaprueba
+                        Console.WriteLine("{0},{1}","prueba id aprobacion",newIdAprobacion);//lineaprueba
+                        OrdenesAprobacion[newIdAprobacion].AgregarIdRepuesto(idRepuesto);//error al ingresar
+                        Console.WriteLine("Repuesto agregado a orden de aprobacion");//lineaprueba
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error al ingresar repuesto");
+                    }
+                    Console.WriteLine("------------------------------------------------------------------");
+                    Console.WriteLine("Desea agregar otro repuesto? (y/n): ");
+                    Opcion = Console.ReadLine();
+                } while (Opcion == "y");
                 break;
             case 6:
-            //por implementar el imprimir orden de aprobacion
-                Console.WriteLine("Ingrese el numero de Orden de servicio: ");
+                Console.WriteLine("Ingrese el numero de Orden de Aprobacion: ");
                 int idOrdenServicioBusqueda = int.Parse(Console.ReadLine());
-                foreach (var item in OrdenesAprobacion.Keys)
+                if (OrdenesAprobacion.ContainsKey(idOrdenServicioBusqueda))
                 {
-                    if (item == idOrdenServicioBusqueda)
+                    OrdenesAprobacion[idOrdenServicioBusqueda].MostrarAprobacion();
+                    try
                     {
-                        OrdenesAprobacion[idOrdenServicioBusqueda].MostrarAprobacion();
+                        foreach (var item in OrdenesAprobacion[idOrdenServicioBusqueda].listRepuestos)
+                        {
+                            Repuestos[item].MostrarAprobacion();
+                        }
                     }
+                    catch
+                    {
+                        Console.WriteLine("La orden de aprobacion no contiene repuestos!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No se ha encontrado la orden");
                 }
                 break;
             case 7:
-            
+                //por implementar el aprobar repuestos y orden de aprobacion
                 break;
             case 8:
                 break;

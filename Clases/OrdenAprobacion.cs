@@ -20,6 +20,7 @@ namespace GestionTaller.Clases
             this.ccEmpleado = ccEmpleado;
             this.fecha = fecha;
             this.aprobada = false;
+            this.listRepuestos = new List<int>();
         }
         public void AgregarIdRepuesto(int idRepuesto)
         {
@@ -51,13 +52,14 @@ namespace GestionTaller.Clases
         }
         public void MostrarAprobacion()
         {
-            Console.WriteLine("------------------------------------------------------------");
-            Console.WriteLine(String.Format("{0,-30}{1,30}", "Numero de Orden:",idOrdenServicio));
-            Console.WriteLine(String.Format("{0,-30}{1,30}", "Fecha de Orden:",fecha));
-            Console.WriteLine(String.Format("{0,-30}{1,30}", "Identificacion del Empleado:",ccEmpleado));
-            Console.WriteLine("------------------------------------------------------------");
-            Console.WriteLine("--------------------Detalle de Aprobacion-------------------");
-            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------------------------------------------------");
+            Console.WriteLine(String.Format("{0,-50}{1,45}", "Numero de Orden:",idOrdenServicio));
+            Console.WriteLine(String.Format("{0,-50}{1,45}", "Fecha de Orden:",fecha));
+            Console.WriteLine(String.Format("{0,-50}{1,45}", "Identificacion del Empleado:",ccEmpleado));
+            Console.WriteLine("-----------------------------------------------------------------------------------------------");
+            Console.WriteLine("-------------------------------------Detalle de Aprobacion-------------------------------------");
+            Console.WriteLine("-----------------------------------------------------------------------------------------------");
+            Console.WriteLine(String.Format("{0,-10}|{1,-30}|{2,-15}|{3,-10}|{4,-17}|{5,-10}", "Item","Repuesto","Valor Unidad", "Cantidad","Valor Total","Aprobado"));
         }
     }
     
